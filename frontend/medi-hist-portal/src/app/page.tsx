@@ -1,42 +1,10 @@
-type HeaderParams = {
-    text: string;
-}
+import Home from "@/app/component/home";
 
 
-function Header(props:HeaderParams) {
+function App() {
     return (
-        <div>
-           hello dear  {props.text}
-        </div>
-    );
+        <Home/>
+    )
 }
 
-function Footer() {
-    return (
-        <div>
-            <h2>this is footer</h2>
-        </div>
-    );
-}
-
-function Description() {
-    return (
-        <div>
-            <h2>this is description</h2>
-        </div>
-    );
-}
-
-function Home() {
-
-    let hideDescription = true
-    return (
-        <main>
-            <Header text="mina lewes"/>
-            {!hideDescription&&<Description/>}
-            <Footer/>
-        </main>
-    );
-}
-
-export default Home;
+export default App;
