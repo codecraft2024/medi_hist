@@ -1,17 +1,22 @@
 'use client';
 
-import {useState} from "react";
+import {useEffect, useRef, useState} from "react";
+import {Fader} from "next/dist/client/components/react-dev-overlay/ui/components/fader";
 
 function App() {
-    const [counter,setCounter] = useState<number>(0);
+    let inputRef = useRef<HTMLInputElement>(null);
 
     const handleClick = () => {
-        setCounter(counter + 1)
+        if (inputRef.current) {
+            inputRef.current.focus();
+        }
     }
+
+
     return (
         <div>
             <h1>Page is working..</h1>
-            <div>Count : {counter}</div>
+             <input  ref={inputRef} />
             <button className="classic-link" onClick={handleClick} >Click to Increment</button>
         </div>
     )
