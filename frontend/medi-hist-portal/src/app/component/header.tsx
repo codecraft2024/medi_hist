@@ -1,5 +1,3 @@
-import Home from "@/app/component/home";
-
 type HeaderParams = {
     title: string;
     subtitle?: string;
@@ -10,7 +8,7 @@ function Header(props: HeaderParams) {
     return (
         <>
             <div>
-                line one  :  {props.title}
+                line one : {props.title}
             </div>
             <div>
                 line two : {props.subtitle ? props.subtitle : "our portal"}

@@ -19,6 +19,12 @@
   }
 }
 
+a.classic-link {
+  text-decoration: underline;
+  text-align: center;
+  text-emphasis: blue;
+}
+
 body {
   background: var(--background);
   color: var(--foreground);
