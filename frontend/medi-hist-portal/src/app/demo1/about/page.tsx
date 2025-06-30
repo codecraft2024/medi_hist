@@ -8,7 +8,7 @@ function about(){
             <p>Welcome to the Medi-Hist Portal, your go-to platform for managing medical histories efficiently.</p>
             <p>Our mission is to provide a user-friendly interface for patients and healthcare providers to access and manage medical records securely.</p>
             <p>Contact us at</p>
-            <Link className="classic-link" href="/" > back to home </Link>
+            <Link className="classic-link" href="/frontend/medi-hist-portal/public" > back to home </Link>
         </div>
     );
 }

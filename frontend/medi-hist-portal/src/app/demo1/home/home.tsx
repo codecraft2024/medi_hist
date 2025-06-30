@@ -1,5 +1,5 @@
-import Header from "@/app/component/header";
-import Footer from "@/app/component/footer";
+import Header from "@/app/demo1/shared/header";
+import Footer from "@/app/demo1/shared/footer";
 import Link from "next/link";
 
 function Home() {
