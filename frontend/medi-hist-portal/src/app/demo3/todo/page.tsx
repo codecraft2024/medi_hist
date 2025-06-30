@@ -1,5 +1,5 @@
-import {getDummyTodos} from "@/app/demo3/todo/todoService";
-import {Todo, TodoStatus} from "@/app/demo3/todo/types";
+import { getDummyTodos } from "./service";
+import { Todo, TodoStatus } from "./types";
 
 
 function ToDoPage() {
