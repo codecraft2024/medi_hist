@@ -28,8 +28,8 @@ const TodoModal: React.FC<TodoModalProps> = ({isOpen, onClose, onAdd, nextId}) =
     if (!isOpen) return null;
 
     return (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-40">
-            <div className="bg-white rounded-lg shadow-lg p-6 w-full max-w-md">
+        <div className="fixed inset-0 z-50 flex items-center justify-center  bg-opacity-50"> {/* Modal overlay */}
+            <div className="bg-white rounded-lg shadow-lg p-8 min-w-[350px]"> {/* Modal content */}
                 <h2 className="text-xl font-bold mb-4">Add New Task</h2>
                 <form onSubmit={handleSubmit} className="space-y-4">
                     <div>
@@ -89,4 +89,3 @@ const TodoModal: React.FC<TodoModalProps> = ({isOpen, onClose, onAdd, nextId}) =
 };
 
 export default TodoModal;
-
