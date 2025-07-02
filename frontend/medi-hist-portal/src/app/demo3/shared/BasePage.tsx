@@ -2,12 +2,12 @@ import React from "react";
 import Loader from "./Loader";
 
 interface BasePageWithLoaderProps {
-  loading: boolean;
+  isLoading: boolean;
   children: React.ReactNode;
 }
 
-const BasePage: React.FC<BasePageWithLoaderProps> = ({ loading, children }) => {
-  if (loading) {
+const BasePage: React.FC<BasePageWithLoaderProps> = ({ isLoading, children }) => {
+  if (isLoading) {
     return (
       <div className="fixed inset-0 z-50 flex items-center justify-center bg-opacity-30">
         <Loader size={48} />

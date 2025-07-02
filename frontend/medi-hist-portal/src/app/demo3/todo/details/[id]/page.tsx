@@ -3,8 +3,8 @@ import { useRouter, useParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import {Todo, TodoStatus} from '../../types';
 import { fetchTodoById } from '../../service';
-import BasePage from "@/app/demo3/todo/shared/BasePage";
-import StatusBadge from "@/app/demo3/todo/shared/StatusBadge";
+import BasePage from "@/app/demo3/shared/BasePage";
+import StatusBadge from "@/app/demo3/shared/StatusBadge";
 
 export default function TodoDetailsPage() {
   const router = useRouter();
@@ -25,7 +25,7 @@ export default function TodoDetailsPage() {
 
 
   return (
-      <BasePage loading={loading}>
+      <BasePage isLoading={loading}>
         <div className="p-8 max-w-lg mx-auto">
           <h1 className="text-3xl font-extrabold mb-8 text-center text-blue-700">Todo Details</h1>
           <div className="bg-white rounded-xl shadow-lg p-6 flex flex-col gap-6">
