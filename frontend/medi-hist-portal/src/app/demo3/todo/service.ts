@@ -1,6 +1,7 @@
 import { Todo, TodoStatus } from "./types";
 
-export function getDummyTodos(): Todo[] {
+export  function getDummyTodos(): Todo[] {
+    //await new Promise(res => setTimeout(res, 1000));
     return [
         { id: 1, taskTitle: "Buy groceries", status: TodoStatus.Pending, startTime: "2023-10-01T10:00:00", endTime: "2023-10-01T11:00:00" },
         { id: 2, taskTitle: "Walk the dog", status: TodoStatus.Completed, startTime: "2023-10-02T09:00:00", endTime: "2023-10-02T09:30:00" },
@@ -8,3 +9,12 @@ export function getDummyTodos(): Todo[] {
     ];
 }
 
+export  function fetchTodoById(id: number): Todo  {
+    return {
+        id,
+        taskTitle: `Dummy Task ${id}`,
+        status: TodoStatus.Pending,
+        startTime: "2023-10-01T10:00:00",
+        endTime: "2023-10-01T11:00:00"
+    };
+}

@@ -1,7 +1,7 @@
 "use client";
 import React, {useState} from "react";
 import { getDummyTodos } from "./service";
-import { Todo, TodoStatus } from "./types";
+import { Todo } from "./types";
 import TodoTable from "./shared/TodoTable";
 import TodoModal from "./shared/TodoModal";
 import AddButton from "./shared/AddButton";
