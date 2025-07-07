@@ -4,9 +4,11 @@ import { useRouter } from 'next/navigation';
 
 interface TodoTableProps {
   todos: Todo[];
+  onDelete: (id: number) => void;
+  onRequestDelete: (id: number) => void;
 }
 
-const TodoTable: React.FC<TodoTableProps> = ({ todos }) => {
+const TodoTable: React.FC<TodoTableProps> = ({ todos, onDelete, onRequestDelete }) => {
   const router = useRouter();
 
   const handleDetailsClick = (id: number) => {
@@ -44,7 +46,9 @@ const TodoTable: React.FC<TodoTableProps> = ({ todos }) => {
                   Details
                 </button>
                 <button className="bg-yellow-500 hover:bg-yellow-600 text-white px-3 py-1 rounded text-xs">Update</button>
-                <button className="bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded text-xs">Delete</button>
+                <button className="bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded text-xs"
+                  onClick={() => onRequestDelete(todo.id)}
+                >Delete</button>
               </td>
             </tr>
           ))}
