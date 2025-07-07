@@ -86,11 +86,11 @@ function ToDoPage() {
                     show={showUpdateModal}
                     todo={selectedUpdateTodo}
                     onCancel={handleCancelUpdate}
-                    onConfirm={handleConfirmUpdate}
-                />
+                    onConfirm={handleConfirmUpdate}/>
             </div>
         </BasePage>
     );
 }
 
 export default ToDoPage;
+
