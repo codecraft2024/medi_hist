@@ -2,7 +2,7 @@
 import { useRouter, useParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import {Todo, TodoStatus} from '../../types';
-import { fetchTodoById } from '../../service';
+import { fetchById } from '../../todoService';
 import BasePage from "@/app/demo3/shared/BasePage";
 import StatusBadge from "@/app/demo3/shared/StatusBadge";
 
@@ -16,7 +16,7 @@ export default function TodoDetailsPage() {
   useEffect(() => {
     if (id) {
       setLoading(true);
-      fetchTodoById(Number(id)).then((data) => {
+      fetchById(Number(id)).then((data) => {
         setTodo(data);
         setLoading(false);
       });

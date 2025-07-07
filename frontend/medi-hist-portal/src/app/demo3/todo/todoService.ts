@@ -1,6 +1,6 @@
 import { Todo, TodoStatus } from "./types";
 
-export async function getDummyTodos(): Promise<Todo[]> {
+export async function fetchAll(): Promise<Todo[]> {
     await new Promise(res => setTimeout(res, 500));
     return [
         { id: 1, taskTitle: "Buy groceries", status: TodoStatus.Pending, startTime: "2023-10-01T10:00:00", endTime: "2023-10-01T11:00:00" },
@@ -9,7 +9,7 @@ export async function getDummyTodos(): Promise<Todo[]> {
     ];
 }
 
-export async function fetchTodoById(id: number): Promise<Todo | null> {
+export async function fetchById(id: number): Promise<Todo | null> {
     await new Promise(res => setTimeout(res, 500));
     return {
         id,
@@ -20,10 +20,14 @@ export async function fetchTodoById(id: number): Promise<Todo | null> {
     };
 }
 
-export function addTodo(todos: Todo[], todo: Todo): Todo[] {
+export function add(todos: Todo[], todo: Todo): Todo[] {
     return [...todos, todo];
 }
 
-export function deleteTodo(todos: Todo[], id: number): Todo[] {
+export function deleteItem(todos: Todo[], id: number): Todo[] {
     return todos.filter(todo => todo.id !== id);
+}
+
+export function update(todos: Todo[], updated: Todo): Todo[] {
+    return todos.map(todo => todo.id === updated.id ? updated : todo);
 }

@@ -1,12 +1,13 @@
 "use client";
 import React, {useState, useEffect} from "react";
 import { Todo } from "./types";
-import TodoModal from "@/app/demo3/todo/components/TodoModal";
+import AddModal from "@/app/demo3/todo/components/TodoModal";
 import AddButton from "@/app/demo3/shared/AddButton";
-import { getDummyTodos, addTodo, deleteTodo } from "./service";
+import { fetchAll, add, deleteItem, update } from "./todoService";
 import BasePage from "@/app/demo3/shared/BasePage";
 import TodoTable from "@/app/demo3/todo/components/TodoTable";
 import DeleteModal from "./components/DeleteModal";
+import UpdateModal from "./components/UpdateModal";
 
 
 function ToDoPage() {
@@ -15,10 +16,12 @@ function ToDoPage() {
     const [loading, setLoading] = useState(true);
     const [showDeleteModal, setShowDeleteModal] = useState(false);
     const [selectedDeleteId, setSelectedDeleteId] = useState<number | null>(null);
+    const [showUpdateModal, setShowUpdateModal] = useState(false);
+    const [selectedUpdateTodo, setSelectedUpdateTodo] = useState<Todo | null>(null);
 
     useEffect(() => {
         (async () => {
-            const data = await getDummyTodos();
+            const data = await fetchAll();
             setTodos(data);
             setLoading(false);
         })();
@@ -31,7 +34,7 @@ function ToDoPage() {
 
     const handleConfirmDelete = () => {
         if (selectedDeleteId !== null) {
-            setTodos(prev => deleteTodo(prev, selectedDeleteId));
+            setTodos(prev => deleteItem(prev, selectedDeleteId));
         }
         setShowDeleteModal(false);
         setSelectedDeleteId(null);
@@ -40,6 +43,22 @@ function ToDoPage() {
     const handleCancelDelete = () => {
         setShowDeleteModal(false);
         setSelectedDeleteId(null);
+    };
+
+    const handleRequestUpdate = (todo: Todo) => {
+        setSelectedUpdateTodo(todo);
+        setShowUpdateModal(true);
+    };
+
+    const handleConfirmUpdate = (updated: Todo) => {
+        setTodos(prev => update(prev, updated));
+        setShowUpdateModal(false);
+        setSelectedUpdateTodo(null);
+    };
+
+    const handleCancelUpdate = () => {
+        setShowUpdateModal(false);
+        setSelectedUpdateTodo(null);
     };
 
     return (
@@ -53,16 +72,22 @@ function ToDoPage() {
                         New Task
                     </AddButton>
                 </div>
-                {<TodoTable todos={todos} onDelete={(id) => setTodos(prev => deleteTodo(prev, id))} onRequestDelete={handleRequestDelete} />}
-                <TodoModal
+                {<TodoTable todos={todos} onDelete={(id) => setTodos(prev => deleteItem(prev, id))} onRequestDelete={handleRequestDelete} onRequestUpdate={handleRequestUpdate} />}
+                <AddModal
                     isOpen={isModalOpen}
                     onClose={() => setIsModalOpen(false)}
-                    onAdd={(todo) => setTodos(prev => addTodo(prev, todo))}
+                    onAdd={(todo) => setTodos(prev => add(prev, todo))}
                     nextId={todos.length ? Math.max(...todos.map(t => t.id)) + 1 : 1}/>
                 <DeleteModal
                     show={showDeleteModal}
                     onCancel={handleCancelDelete}
                     onConfirm={handleConfirmDelete}/>
+                <UpdateModal
+                    show={showUpdateModal}
+                    todo={selectedUpdateTodo}
+                    onCancel={handleCancelUpdate}
+                    onConfirm={handleConfirmUpdate}
+                />
             </div>
         </BasePage>
     );
