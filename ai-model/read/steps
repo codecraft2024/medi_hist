@@ -7,5 +7,7 @@ install ollama
     echo "Write a Postgres query to list the 10 most recent transactions." | ollama run mistral
 
 2- Create a specialized “SQL assistant” variant :
+    mkdir -p ~/ollama/sql-assistant && cd ~/ollama/sql-assistant
+    ollama create moon-mistral-sql -f Modelfile
 
-
+3-
