@@ -1,0 +1,11 @@
+install ollama
+1- install ollama and smoke test it :
+    curl -fsSL https://ollama.com/install.sh | sh
+    ollama --version
+    ollama pull mistral
+    ollama run mistral
+    echo "Write a Postgres query to list the 10 most recent transactions." | ollama run mistral
+
+2- Create a specialized “SQL assistant” variant :
+
+
