@@ -1,18 +1,18 @@
 import { useRouter } from "next/navigation";
-import { ComponentType, useEffect, useState } from "react";
+import { ComponentType, useEffect, useState, PropsWithChildren } from "react";
 
 export const ROUTES = {
     login: "/login",
     home: "/home",
 };
 
-export function authGuardWrapper<T>(Component: ComponentType<T>) {
-    return function AuthGuard(props: T) {
+export function authGuardWrapper<P>(Component: ComponentType<P>) {
+    return function AuthGuard(props: PropsWithChildren<P>) {
         const router = useRouter();
         const [checked, setChecked] = useState(false);
 
         useEffect(() => {
-             if (typeof window !== "undefined") {
+            if (typeof window !== "undefined") {
                 const token = localStorage.getItem("token");
                 if (!token) {
                     setChecked(false);
