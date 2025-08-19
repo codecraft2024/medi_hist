@@ -4,6 +4,8 @@ import lombok.Data;
 
 @Data
 public class ChatResponse {
-    private String type;   // "text", "table", "chart"
-    private Object result; // Can be String, JSON, or table data
+    private String type;
+    private String text;
+    private String query;
+
 }

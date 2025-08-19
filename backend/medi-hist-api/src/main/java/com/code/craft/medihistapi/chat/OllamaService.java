@@ -4,14 +4,9 @@ package com.code.craft.medihistapi.chat;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
-import org.springframework.web.client.RestTemplate;
 import org.springframework.http.*;
 import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Flux;
-import reactor.core.publisher.Mono;
-
-import java.util.HashMap;
-import java.util.Map;
 
 
 @Service
@@ -31,11 +26,11 @@ public class OllamaService {
 
     public Flux<String> streamSQL(String prompt) {
         JSONObject request = new JSONObject();
-        request.put("model", "moon-mistral-sql");
+        request.put("model", ollamaModel);
         request.put("prompt", prompt);
 
         return webClient.post()
-                .uri("http://localhost:11434/api/generate")
+                .uri(ollamaUrl)
                 .contentType(MediaType.APPLICATION_JSON)
                 .accept(MediaType.TEXT_EVENT_STREAM) // crucial for streaming
                 .bodyValue(request.toString())
