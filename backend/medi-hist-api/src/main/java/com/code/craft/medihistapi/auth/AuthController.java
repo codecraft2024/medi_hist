@@ -11,7 +11,7 @@ public class AuthController {
 
     @PostMapping("/auth")
     public ResponseEntity<String> authenticate(@RequestBody AuthRequest request) {
-        if ("admin@admin.com".equals(request.getUsername()) && "admin".equals(request.getPassword())) {
+        if ("admin@admin.com".equals(request.getUsername()) && "P@ssw0rd".equals(request.getPassword())) {
             return ResponseEntity.ok("Authentication successful");
         } else {
             return ResponseEntity.status(401).body("Invalid username or password");
