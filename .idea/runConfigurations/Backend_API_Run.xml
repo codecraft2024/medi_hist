@@ -1,0 +1,9 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Backend-API-Run" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+    <module name="medi-hist-api" />
+    <option name="SPRING_BOOT_MAIN_CLASS" value="com.code.craft.medihistapi.MediHistApiApplication" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>
