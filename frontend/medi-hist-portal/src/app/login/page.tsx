@@ -1,14 +1,25 @@
 'use client';
 
 import { useState } from 'react';
+import { useRouter } from 'next/navigation';
+import { loginUser } from './authService';
 
 export default function LoginPage() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [error, setError] = useState('');
+    const router = useRouter();
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-        console.log({ email, password });
+        setError('');
+        const result = await loginUser(email, password);
+        if (result.success) {
+            // Optionally store token: localStorage.setItem('token', result.token);
+            router.push('/home');
+        } else {
+            setError(result.error || 'Login failed');
+        }
     };
 
     return (
@@ -69,6 +80,10 @@ export default function LoginPage() {
                         </label>
                         <a href="#" className="text-green-600 hover:underline">Forgot password?</a>
                     </div>
+
+                    {error && (
+                        <div className="text-red-600 text-sm text-center">{error}</div>
+                    )}
 
                     <button
                         type="submit"
