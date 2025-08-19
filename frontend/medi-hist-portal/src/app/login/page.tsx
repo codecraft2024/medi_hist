@@ -15,7 +15,9 @@ export default function LoginPage() {
         setError('');
         const result = await loginUser(email, password);
         if (result.success) {
-            // Optionally store token: localStorage.setItem('token', result.token);
+            if (typeof window !== "undefined" && result.token) {
+                localStorage.setItem('token', result.token);
+            }
             router.push('/home');
         } else {
             setError(result.error || 'Login failed');
@@ -29,8 +31,7 @@ export default function LoginPage() {
                 // Add a soft green radial gradient accent in the background
                 background:
                     'radial-gradient(circle at 80% 10%, #a7f3d0 0%, transparent 60%), #f9fafb',
-            }}
-        >
+            }}>
             <div className="w-full max-w-md rounded-xl bg-white p-8 shadow-2xl backdrop-blur-md border border-green-100">
                 {/* Logo */}
                 <div className="mb-6 flex justify-center">

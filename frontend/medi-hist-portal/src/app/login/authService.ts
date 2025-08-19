@@ -11,11 +11,10 @@ export async function loginUser(email: string, password: string): Promise<{ succ
             const errorText = await response.text();
             return { success: false, error: errorText || 'Invalid credentials' };
         }
-
-        // Backend returns plain text on success
         const data = await response.text();
         return { success: true, token: data };
     } catch (error) {
         return { success: false, error: 'Network error' };
     }
 }
+

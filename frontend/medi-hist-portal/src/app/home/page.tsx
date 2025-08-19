@@ -1,8 +1,9 @@
 'use client';
 
 import { useEffect, useRef, useState } from "react";
+import { withAuthGuard } from "../router";
 
-export default function HomePage() {
+function HomePageContent() {
     const [stage, setStage] = useState<"center" | "animating" | "header">("center");
     const [inputValue, setInputValue] = useState("");
     const inputRef = useRef<HTMLInputElement>(null);
@@ -66,3 +67,5 @@ export default function HomePage() {
         </main>
     );
 }
+
+export default withAuthGuard(HomePageContent);

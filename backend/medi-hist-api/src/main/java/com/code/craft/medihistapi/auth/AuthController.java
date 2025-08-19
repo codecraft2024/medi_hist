@@ -12,7 +12,9 @@ public class AuthController {
     @PostMapping("/auth")
     public ResponseEntity<String> authenticate(@RequestBody AuthRequest request) {
         if ("admin@admin.com".equals(request.getUsername()) && "P@ssw0rd".equals(request.getPassword())) {
-            return ResponseEntity.ok("Authentication successful");
+            // Return a dummy token instead of a plain message
+            String dummyToken = "dummy-token-" + System.currentTimeMillis();
+            return ResponseEntity.ok(dummyToken);
         } else {
             return ResponseEntity.status(401).body("Invalid username or password");
         }
