@@ -1,67 +1,79 @@
 'use client';
 
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { authGuardWrapper } from "../router";
+import LogoutButton from "./LogoutButton";
+import { color } from "../theme/color";
+import WelcomeMessage from "../animation/WelcomeMessage";
 
 function HomePageContent() {
-    const [stage, setStage] = useState<"center" | "animating" | "header">("center");
+    const [showHeader, setShowHeader] = useState(false);
+    const [showInput, setShowInput] = useState(false);
     const [inputValue, setInputValue] = useState("");
     const inputRef = useRef<HTMLInputElement>(null);
 
-    useEffect(() => {
-        const timer1 = setTimeout(() => {
-            setStage("animating");
-            const timer2 = setTimeout(() => {
-                setStage("header");
-                setTimeout(() => {
-                    inputRef.current?.focus();
-                }, 400);
-            }, 1200); // animation duration
-            return () => clearTimeout(timer2);
-        }, 1200);
-        return () => clearTimeout(timer1);
-    }, []);
+    const handleWelcomeAnimationDone = () => {
+        setShowInput(true);
+        setTimeout(() => {
+            inputRef.current?.focus();
+        }, 100);
+    };
+
+    const handleSend = () => {
+        setInputValue("");
+        inputRef.current?.focus();
+    };
 
     return (
-        <main className="relative min-h-screen bg-gray-50 flex flex-col items-center justify-center overflow-hidden">
-            {/* Animated Welcome Message */}
-            <div
-                className={`
-                    fixed left-0 right-0 flex justify-center z-20
-                    font-bold text-green-700
-                    transition-all duration-[1200ms] ease-[cubic-bezier(0.77,0,0.175,1)]
-                    ${stage === "center" 
-                        ? "top-1/2 -translate-y-1/2 text-5xl opacity-100 scale-110"
-                        : stage === "animating"
-                            ? "top-16 translate-y-0 text-3xl opacity-90 scale-100"
-                            : "top-8 translate-y-0 text-2xl opacity-80 scale-95"}`}
-                style={{ pointerEvents: "none" }}>
-                Welcome to Payment App
-            </div>
+        <main className={`relative min-h-screen bg-gray-50 flex flex-col items-center justify-center overflow-hidden`}>
 
-            {/* Input field appears after animation */}
+            {showHeader && <LogoutButton />}
+
+            <WelcomeMessage
+                showHeader={showHeader}
+                setShowHeader={v => {
+                    setShowHeader(v);
+                    if (v) {
+                        setTimeout(handleWelcomeAnimationDone, 1000); // match animation duration in WelcomeMessage
+                    }
+                }}
+                inputRef={inputRef as React.RefObject<HTMLInputElement>}
+            />
+
             <div
                 className={`
-                    transition-all duration-700 ease-[cubic-bezier(0.77,0,0.175,1)]
-                    ${stage === "header" ? "opacity-100 scale-100" : "opacity-0 scale-95 pointer-events-none"}
+                    transition-all duration-500 ease-in-out
+                    ${showInput ? "opacity-100 scale-100" : "opacity-0 scale-95 pointer-events-none"}
                     flex flex-col items-center w-full
                 `}
                 style={{
-                    marginTop: stage === "header" ? "120px" : "0",
-                }}
-            >
+                    marginTop: showInput ? "120px" : "0",
+                }}>
                 <div className="w-full flex justify-center">
-                    <input
-                        ref={inputRef}
-                        type="text"
-                        value={inputValue}
-                        onChange={e => setInputValue(e.target.value)}
-                        placeholder="What would you like to do today?"
-                        className="w-full max-w-2xl rounded-2xl border border-gray-300 px-6 py-6 text-lg shadow-lg focus:outline-none focus:ring-2 focus:ring-green-400 bg-white transition-all"
-                        style={{
-                            fontSize: "1.5rem",
-                        }}
-                    />
+                    <div className="relative w-full max-w-2xl">
+                        <input
+                            ref={inputRef}
+                            type="text"
+                            value={inputValue}
+                            onChange={e => setInputValue(e.target.value)}
+                            placeholder="What would you like to do today?"
+                            className={`w-full rounded-2xl border border-gray-300 px-6 py-6 text-lg shadow-lg focus:outline-none ${color.primaryRing} bg-white transition-all pr-16`}
+                            style={{
+                                fontSize: "1.5rem",
+                            }}
+                            onKeyDown={e => {
+                                if (e.key === "Enter") handleSend();
+                            }}/>
+                        <button
+                            onClick={handleSend}
+                            className={`absolute right-4 top-1/2 -translate-y-1/2 ${color.button} rounded-full p-2 shadow transition-colors`}
+                            tabIndex={-1}
+                            aria-label="Send">
+                            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 12h14M12 5l7 7-7 7" />
+                            </svg>
+                        </button>
+                    </div>
                 </div>
             </div>
         </main>
