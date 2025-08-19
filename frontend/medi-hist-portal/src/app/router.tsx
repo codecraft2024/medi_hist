@@ -6,7 +6,7 @@ export const ROUTES = {
     home: "/home",
 };
 
-export function withAuthGuard<T>(Component: ComponentType<T>) {
+export function authGuardWrapper<T>(Component: ComponentType<T>) {
     return function AuthGuard(props: T) {
         const router = useRouter();
         const [checked, setChecked] = useState(false);
@@ -23,7 +23,9 @@ export function withAuthGuard<T>(Component: ComponentType<T>) {
             }
         }, [router]);
 
-        if (typeof window === "undefined" || !checked) return null;
+        if (typeof window === "undefined" || !checked)
+            return null;
+
         return <Component {...props} />;
     };
 }

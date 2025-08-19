@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useState } from "react";
-import { withAuthGuard } from "../router";
+import { authGuardWrapper } from "../router";
 
 function HomePageContent() {
     const [stage, setStage] = useState<"center" | "animating" | "header">("center");
@@ -68,4 +68,4 @@ function HomePageContent() {
     );
 }
 
-export default withAuthGuard(HomePageContent);
+export default authGuardWrapper(HomePageContent);
