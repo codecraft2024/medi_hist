@@ -1,7 +1,7 @@
 'use client';
 
-import {useEffect, useRef, useState} from "react";
-import {Fader} from "next/dist/client/components/react-dev-overlay/ui/components/fader";
+import {useRef} from "react";
+import { redirect } from "next/navigation";
 
 function App() {
     let inputRef = useRef<HTMLInputElement>(null);
@@ -12,6 +12,7 @@ function App() {
         }
     }
 
+    redirect("/login");
 
     return (
         <div>
