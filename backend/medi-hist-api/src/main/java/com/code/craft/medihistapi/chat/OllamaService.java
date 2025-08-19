@@ -1,6 +1,7 @@
 package com.code.craft.medihistapi.chat;
 
 
+import org.json.JSONException;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -24,7 +25,7 @@ public class OllamaService {
         this.webClient = webClientBuilder.build();
     }
 
-    public Flux<String> streamSQL(String prompt) {
+    public Flux<String> streamSQL(String prompt) throws JSONException {
         JSONObject request = new JSONObject();
         request.put("model", ollamaModel);
         request.put("prompt", prompt);
@@ -39,7 +40,12 @@ public class OllamaService {
                 .flatMap(line -> {
                     line = line.trim();
                     if (line.isEmpty()) return Flux.empty();
-                    JSONObject obj = new JSONObject(line);
+                    JSONObject obj = null;
+                    try {
+                        obj = new JSONObject(line);
+                    } catch (JSONException e) {
+                        throw new RuntimeException(e);
+                    }
                     return Flux.just(obj.optString("response", ""));
                 });
     }

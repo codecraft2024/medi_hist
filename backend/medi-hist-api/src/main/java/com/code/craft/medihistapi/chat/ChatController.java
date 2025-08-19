@@ -1,5 +1,6 @@
 package com.code.craft.medihistapi.chat;
 
+import org.json.JSONException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -18,7 +19,7 @@ public class ChatController {
     private OllamaService ollamaService;
 
     @PostMapping("/message")
-    public ChatResponse chatFullMessage(@RequestBody ChatRequest request) {
+    public ChatResponse chatFullMessage(@RequestBody ChatRequest request) throws JSONException {
         String fullResponse = ollamaService.streamSQL(request.getUserMessage())
                 .reduce(new StringBuilder(), StringBuilder::append)
                 .map(StringBuilder::toString)
