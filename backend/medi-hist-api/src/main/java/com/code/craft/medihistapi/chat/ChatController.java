@@ -17,8 +17,8 @@ public class ChatController {
     @Autowired
     private OllamaService ollamaService;
 
-    @PostMapping
-    public ChatResponse chatFull(@RequestBody ChatRequest request) {
+    @PostMapping("/message")
+    public ChatResponse chatFullMessage(@RequestBody ChatRequest request) {
         String fullResponse = ollamaService.streamSQL(request.getUserMessage())
                 .reduce(new StringBuilder(), StringBuilder::append)
                 .map(StringBuilder::toString)
@@ -38,4 +38,8 @@ public class ChatController {
 
         return response;
     }
+
+
+
+
 }

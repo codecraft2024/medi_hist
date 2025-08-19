@@ -12,21 +12,28 @@ export default function LoginPage() {
     };
 
     return (
-        <main className="flex min-h-screen items-center justify-center bg-gradient-to-tr from-teal-100 via-blue-100 to-white px-4">
-            <div className="w-full max-w-md rounded-xl bg-white p-8 shadow-2xl backdrop-blur-md border border-blue-100">
-                {}
+        <main
+            className="flex min-h-screen items-center justify-center bg-gray-50 px-4 relative overflow-hidden"
+            style={{
+                // Add a soft green radial gradient accent in the background
+                background:
+                    'radial-gradient(circle at 80% 10%, #a7f3d0 0%, transparent 60%), #f9fafb',
+            }}
+        >
+            <div className="w-full max-w-md rounded-xl bg-white p-8 shadow-2xl backdrop-blur-md border border-green-100">
+                {/* Logo */}
                 <div className="mb-6 flex justify-center">
                     <img
-                        src="/logo-icon-only.png"
-                        alt="Medical Logo"
+                        src="/logo-login.jpg"
+                        alt="Payment App Logo"
                         className="h-24 w-24 rounded-full object-cover shadow-md"
                     />
                 </div>
 
                 {/* Title */}
                 <div className="text-center mb-6">
-                    <h1 className="text-3xl font-extrabold text-blue-800">Portal</h1>
-                    <p className="text-sm text-gray-500">Secure login for patient medical files </p>
+                    <h1 className="text-3xl font-extrabold text-green-800">Payment App</h1>
+                    <p className="text-sm text-gray-500">Secure login to manage your payments</p>
                 </div>
 
                 {/* Form */}
@@ -38,8 +45,8 @@ export default function LoginPage() {
                             required
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
-                            className="w-full rounded-lg border border-gray-300 px-4 py-2 focus:border-teal-500 focus:ring-teal-500 focus:outline-none"
-                            placeholder="you@healthcare.com"
+                            className="w-full rounded-lg border border-gray-300 px-4 py-2 focus:border-green-500 focus:ring-green-500 focus:outline-none"
+                            placeholder="you@email.com"
                         />
                     </div>
 
@@ -50,29 +57,29 @@ export default function LoginPage() {
                             required
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
-                            className="w-full rounded-lg border border-gray-300 px-4 py-2 focus:border-teal-500 focus:ring-teal-500 focus:outline-none"
-                            placeholder="••••••••"
+                            className="w-full rounded-lg border border-gray-300 px-4 py-2 focus:border-green-500 focus:ring-green-500 focus:outline-none"
+                            placeholder="Enter your password"
                         />
                     </div>
 
                     <div className="flex items-center justify-between text-sm">
                         <label className="flex items-center space-x-2">
-                            <input type="checkbox" className="form-checkbox text-blue-600" />
+                            <input type="checkbox" className="form-checkbox text-green-600" />
                             <span className="text-gray-700">Remember me</span>
                         </label>
-                        <a href="#" className="text-teal-600 hover:underline">Forgot password?</a>
+                        <a href="#" className="text-green-600 hover:underline">Forgot password?</a>
                     </div>
 
                     <button
                         type="submit"
-                        className="w-full rounded-lg bg-teal-600 px-4 py-2 font-semibold text-white hover:bg-teal-700 transition duration-200 shadow-md">
-                        Sign In
+                        className="w-full rounded-lg bg-green-600 px-4 py-2 font-semibold text-white hover:bg-green-700 transition duration-200 shadow-md">
+                        Log In
                     </button>
                 </form>
 
                 <p className="mt-6 text-center text-sm text-gray-600">
-                    New patient?
-                    <a href="#" className="ml-1 text-blue-600 hover:underline">Create account</a>
+                    New to Payment App?
+                    <a href="#" className="ml-1 text-green-600 hover:underline">Create account</a>
                 </p>
             </div>
         </main>
