@@ -1,7 +1,7 @@
 'use client';
 
 import { useRouter } from "next/navigation";
-import { color } from "../theme/color";
+import { color } from "@/app/shared/theme/color";
 
 export default function LogoutButton() {
     const router = useRouter();

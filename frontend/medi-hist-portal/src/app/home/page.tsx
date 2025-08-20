@@ -3,8 +3,8 @@
 import { useRef, useState } from "react";
 import { authGuardWrapper } from "../router";
 import LogoutButton from "./LogoutButton";
-import { color } from "../theme/color";
-import WelcomeMessage from "../animation/WelcomeMessage";
+import { color } from "@/app/shared/theme/color";
+import WelcomeMessage from "@/app/shared/animation/WelcomeMessage";
 
 function HomePageContent() {
     const [showHeader, setShowHeader] = useState(false);

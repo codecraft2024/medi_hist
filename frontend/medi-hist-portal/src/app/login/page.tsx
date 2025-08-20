@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { loginUser } from './authService';
-import { color } from '../theme/color';
+import { color } from '@/app/shared/theme/color';
 
 export default function LoginPage() {
     const [email, setEmail] = useState('');
