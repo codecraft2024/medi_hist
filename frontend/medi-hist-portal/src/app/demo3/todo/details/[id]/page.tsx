@@ -3,8 +3,8 @@ import { useRouter, useParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import {Todo, TodoStatus} from '../../types';
 import { fetchById } from '../../todoService';
-import BasePage from "@/app/demo3/shared/BasePage";
-import StatusBadge from "@/app/demo3/shared/StatusBadge";
+import BasePage from "@/app/shared/components/BasePage";
+import StatusBadge from "@/app/shared/components/StatusBadge";
 
 export default function TodoDetailsPage() {
   const router = useRouter();

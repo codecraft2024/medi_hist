@@ -2,9 +2,9 @@
 import React, {useState, useEffect} from "react";
 import { Todo } from "./types";
 import AddModal from "@/app/demo3/todo/components/TodoModal";
-import AddButton from "@/app/demo3/shared/AddButton";
+import AddButton from "@/app/shared/components/AddButton";
 import { fetchAll, add, deleteItem, update } from "./todoService";
-import BasePage from "@/app/demo3/shared/BasePage";
+import BasePage from "@/app/shared/components/BasePage";
 import TodoTable from "@/app/demo3/todo/components/TodoTable";
 import DeleteModal from "./components/DeleteModal";
 import UpdateModal from "./components/UpdateModal";

@@ -4,12 +4,14 @@ import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { loginUser } from './authService';
 import { color } from '@/app/shared/theme/color';
+import BasePage from "@/app/shared/components/BasePage";
 
 export default function LoginPage() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
     const router = useRouter();
+    const [loading, setLoading] = useState(false);
 
     useEffect(() => {
         // Remove any previous tokens on mount
@@ -20,12 +22,14 @@ export default function LoginPage() {
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
+        setLoading(true);
         setError('');
         const result = await loginUser(email, password);
         if (result.success) {
             if (typeof window !== "undefined" && result.token) {
                 localStorage.setItem('token', result.token);
             }
+            setLoading(false);
             router.push('/home');
         } else {
             setError(result.error || 'Login failed');
@@ -33,9 +37,9 @@ export default function LoginPage() {
     };
 
     return (
+        <BasePage isLoading={loading}>
         <main
-            className={`flex min-h-screen items-center justify-center bg-gradient-to-tr ${color.gradientFrom} ${color.gradientVia} ${color.gradientTo} px-4 relative overflow-hidden`}
-        >
+            className={`flex min-h-screen items-center justify-center bg-gradient-to-tr ${color.gradientFrom} ${color.gradientVia} ${color.gradientTo} px-4 relative overflow-hidden`}>
             <div className={`w-full max-w-md rounded-xl bg-white p-8 shadow-2xl backdrop-blur-md border ${color.border}`}>
                 {/* Logo */}
                 <div className="mb-6 flex justify-center">
@@ -103,5 +107,6 @@ export default function LoginPage() {
                 </p>
             </div>
         </main>
+        </BasePage>
     );
 }

@@ -2,7 +2,7 @@
 
 import { useRef, useState } from "react";
 import { authGuardWrapper } from "../router";
-import LogoutButton from "./LogoutButton";
+import LogoutButton from "../shared/components/LogoutButton";
 import { color } from "@/app/shared/theme/color";
 import WelcomeMessage from "@/app/shared/animation/WelcomeMessage";
 
