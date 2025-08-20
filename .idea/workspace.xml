@@ -4,7 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="379d5091-74ec-45a4-a5c4-c37ce64fa117" name="Changes" comment="redirect to login page on component mount" />
+    <list default="true" id="379d5091-74ec-45a4-a5c4-c37ce64fa117" name="Changes" comment="add project configuration files for backend API; set up compiler, encodings, and remote repositories">
+      <change afterPath="$PROJECT_DIR$/.idea/runConfigurations/Portal___Run.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/medi-hist-portal/.idea/medi-hist-portal.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -49,37 +53,38 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Maven.Unnamed.executor": "Run",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "Spring Boot.Backend-API-Run.executor": "Run",
-    "Spring Boot.MediHistApiApplication.executor": "Run",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "/Users/minaanwer/Desktop/githup-repo/medi hist/medi_hist",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "npm.Portal - Run.executor": "Run",
-    "npm.Portal - build.executor": "Run",
-    "npm.dev.executor": "Run",
-    "npm.lint.executor": "Debug",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "ts.external.directory.path": "/Users/minaanwer/Desktop/githup-repo/medi hist/medi_hist/frontend/medi-hist-portal/node_modules/typescript/lib",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Maven.Unnamed.executor&quot;: &quot;Run&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;Spring Boot.Backend-API-Run.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.MediHistApiApplication.executor&quot;: &quot;Run&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/minaanwer/Desktop/githup-repo/medi hist/medi_hist&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;npm.Portal - Run.executor&quot;: &quot;Run&quot;,
+    &quot;npm.Portal - build.executor&quot;: &quot;Run&quot;,
+    &quot;npm.dev.executor&quot;: &quot;Run&quot;,
+    &quot;npm.lint.executor&quot;: &quot;Debug&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/Users/minaanwer/Desktop/githup-repo/medi hist/medi_hist/frontend/medi-hist-portal/node_modules/typescript/lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="ReactorSettings">
     <option name="notificationShown" value="true" />
   </component>
@@ -109,25 +114,10 @@
       <option name="filePath" />
       <method v="2" />
     </configuration>
-    <configuration name="Portal - Run" type="js.build_tools.npm" temporary="true">
-      <package-json value="$PROJECT_DIR$/frontend/medi-hist-portal/package.json" />
-      <command value="run" />
-      <scripts>
-        <script value="dev" />
-      </scripts>
-      <node-interpreter value="project" />
-      <envs />
-      <method v="2" />
-    </configuration>
     <list>
       <item itemvalue="npm.Portal - Run" />
       <item itemvalue="Spring Boot.Backend-API-Run" />
     </list>
-    <recent_temporary>
-      <list>
-        <item itemvalue="npm.Portal - Run" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
@@ -166,6 +156,11 @@
       <workItem from="1755610185528" duration="21000" />
       <workItem from="1755610213907" duration="241000" />
       <workItem from="1755614203549" duration="359000" />
+      <workItem from="1755614809001" duration="197000" />
+      <workItem from="1755691589274" duration="38000" />
+      <workItem from="1755691711746" duration="140000" />
+      <workItem from="1755691867062" duration="21000" />
+      <workItem from="1755691928119" duration="9000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <option name="closed" value="true" />
@@ -423,7 +418,15 @@
       <option name="project" value="LOCAL" />
       <updated>1755609844707</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="add project configuration files for backend API; set up compiler, encodings, and remote repositories">
+      <option name="closed" value="true" />
+      <created>1755614860461</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1755614860461</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -454,6 +457,7 @@
     <MESSAGE value="add color theme and logout button; implement welcome animation and update login page styles" />
     <MESSAGE value="refactor authGuardWrapper to accept PropsWithChildren for better type handling" />
     <MESSAGE value="redirect to login page on component mount" />
-    <option name="LAST_COMMIT_MESSAGE" value="redirect to login page on component mount" />
+    <MESSAGE value="add project configuration files for backend API; set up compiler, encodings, and remote repositories" />
+    <option name="LAST_COMMIT_MESSAGE" value="add project configuration files for backend API; set up compiler, encodings, and remote repositories" />
   </component>
 </project>

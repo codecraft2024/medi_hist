@@ -48,7 +48,7 @@ export default function LoginPage() {
 
                 {/* Title */}
                 <div className="text-center mb-6">
-                    <h1 className={`text-3xl font-extrabold ${color.primaryText}`}>Payment App</h1>
+                    <h1 className={`text-3xl font-extrabold ${color.primaryText}`}>Payment Portal</h1>
                     <p className="text-sm text-gray-500">Secure login to manage your payments</p>
                 </div>
 

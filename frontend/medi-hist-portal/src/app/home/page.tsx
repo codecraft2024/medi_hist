@@ -25,7 +25,12 @@ function HomePageContent() {
     };
 
     return (
-        <main className={`relative min-h-screen bg-gray-50 flex flex-col items-center justify-center overflow-hidden`}>
+        <main
+            className={`
+                relative min-h-screen bg-gray-50 flex flex-col items-center justify-center overflow-hidden
+                px-2 sm:px-0
+            `}
+        >
 
             {showHeader && <LogoutButton />}
 
@@ -43,33 +48,38 @@ function HomePageContent() {
             <div
                 className={`
                     transition-all duration-500 ease-in-out
-                    ${showInput ? "opacity-100 scale-100" : "opacity-0 scale-95 pointer-events-none"}
+                    ${showInput ? "opacity-100 scale-100 mt-20" : "opacity-0 scale-95 pointer-events-none mt-0"}
                     flex flex-col items-center w-full
+                    px-0 sm:px-0
                 `}
-                style={{
-                    marginTop: showInput ? "120px" : "0",
-                }}>
+            >
                 <div className="w-full flex justify-center">
-                    <div className="relative w-full max-w-2xl">
+                    <div className="relative w-full max-w-2xl px-0 sm:px-4">
                         <input
                             ref={inputRef}
                             type="text"
                             value={inputValue}
                             onChange={e => setInputValue(e.target.value)}
                             placeholder="What would you like to do today?"
-                            className={`w-full rounded-2xl border border-gray-300 px-6 py-6 text-lg shadow-lg focus:outline-none ${color.primaryRing} bg-white transition-all pr-16`}
-                            style={{
-                                fontSize: "1.5rem",
-                            }}
+                            className={`
+                                w-full rounded-2xl border border-gray-300
+                                px-4 py-4 sm:px-6 sm:py-6
+                                text-sm sm:text-lg
+                                shadow-lg focus:outline-none ${color.primaryRing} bg-white transition-all pr-14 sm:pr-16
+                            `}
                             onKeyDown={e => {
                                 if (e.key === "Enter") handleSend();
                             }}/>
                         <button
                             onClick={handleSend}
-                            className={`absolute right-4 top-1/2 -translate-y-1/2 ${color.button} rounded-full p-2 shadow transition-colors`}
+                            className={`
+                                absolute right-2 sm:right-4 top-1/2 -translate-y-1/2
+                                mr-1 sm:mr-2
+                                ${color.button} rounded-full p-2 shadow transition-colors
+                            `}
                             tabIndex={-1}
                             aria-label="Send">
-                            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 sm:h-6 sm:w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 12h14M12 5l7 7-7 7" />
                             </svg>
                         </button>
